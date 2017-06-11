@@ -11,22 +11,29 @@ var jsonWrite = function (res, ret) {
             code:'1',
             msg: '操作失败'
         });
+    } else if(ret.length == 0) {
+        res.json({
+            code:'1',
+            msg:'not found'
+        });
     } else {
-        res.json(ret);
+            res.json(ret)
     }
 };
+
 
 module.exports = {
     test: function (req, res, next) {
         pool.getConnection(function(err, connection) {
             var param = req.query || req.params;
-            console.log('')
+            console.log('param is');
             console.log(param);
             connection.query('SELECT Longtitude,Latitude FRom minitrack where Taxiid='+param.id+' order by Recetime', function(err, result) {
                 if(err){
                     console.log(err);
                 }
                 if(result) {
+                    console.log(result);
                     console.log('query success');
                 }
                 jsonWrite(res, result);

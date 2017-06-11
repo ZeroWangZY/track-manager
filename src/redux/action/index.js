@@ -2,6 +2,8 @@
  * Created by ZeroW on 2017/6/10.
  */
 import {address} from '../../config/config';
+import { message } from 'antd';
+
 const initPoints = (points) => (
     {
         type: 'GET_POINTS',
@@ -15,11 +17,15 @@ export const fetchPoints = (index) => {
             method: "GET"
         })
             .then((res) => {
-                console.log(res);
                 return res.json()
             })
             .then((json) =>  {
-                dispatch(initPoints(json))
+                console.log('get json');
+                console.log(json);
+                if(json.code=='1'){
+                    message.error(json.msg);
+                }
+                dispatch(initPoints(json));
             });
     }
 };
