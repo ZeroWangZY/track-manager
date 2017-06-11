@@ -1,0 +1,40 @@
+{
+  "name": "track-database",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^2.10.1",
+    "es6-promise": "^4.1.0",
+    "isomorphic-fetch": "^2.2.1",
+    "mysql": "^2.13.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-fetch": "^0.0.9",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-import": "^1.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.1",
+    "react-scripts": "0.9.5",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.17.0",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start:dev": "webpack-dev-server --inline --content-base public/ --history-api-fallback",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
