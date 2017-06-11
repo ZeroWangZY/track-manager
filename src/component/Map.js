@@ -11,7 +11,7 @@ let i = 0;
 class Map extends React.Component{
 
     showPolyline=function(){
-        
+
         var pointArray = points2Bpoints(this.props.points);
 
         var polyline = new BMap.Polyline(pointArray,
@@ -20,6 +20,7 @@ class Map extends React.Component{
         var map = new BMap.Map(this.refs.map);
         map.addOverlay(polyline);
         map.centerAndZoom(pointArray[0], 15);
+        map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
         map.enableScrollWheelZoom(true);
     }
 
@@ -27,8 +28,8 @@ class Map extends React.Component{
     showMap(){
         var map = new BMap.Map(this.refs.map);    // 创建Map实例
         map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
-        // map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
-        // map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+        map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+        map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
         map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
 
     }
