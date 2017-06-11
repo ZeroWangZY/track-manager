@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import Map from './component/Map';
 import MapController from'./redux/controller/MapController';
-
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -23,6 +26,7 @@ class App extends Component {
     }
   render() {
     return (
+        <Router>
         <Layout>
             <Sider
                 collapsible
@@ -31,20 +35,24 @@ class App extends Component {
             >
                 <div className="logo" />
                 <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['1']}>
+
                     <Menu.Item key="1">
-              <span>
-                <Icon type="file" />
-                <span className="nav-text">首页</span>
-              </span>
+                        <Link to="/">
+                     <span>
+
+                         <Icon type="file" />
+                         <span className="nav-text">首页</span>
+
+                    </span>
+                        </Link>
                     </Menu.Item>
-                    <SubMenu
-                        key="sub1"
-                        title={<span><Icon type="user" /><span className="nav-text">User</span></span>}
-                    >
-                        <Menu.Item key="2">Tom</Menu.Item>
-                        <Menu.Item key="3">Bill</Menu.Item>
-                        <Menu.Item key="4">Alex</Menu.Item>
-                    </SubMenu>
+
+                    <Menu.Item key="2">
+                        <Link to="/user">
+                        <Icon type="user" />
+                        <span className="nav-text">用户</span>
+                        </Link>
+                    </Menu.Item>
                     <SubMenu
                         key="sub2"
                         title={<span><Icon type="team" /><span className="nav-text">Team</span></span>}
@@ -62,7 +70,7 @@ class App extends Component {
                         <Breadcrumb.Item>首页</Breadcrumb.Item>
                     </Breadcrumb>
                     <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-                        <MapController />
+                        <Route exact path="/" component={MapController}/>
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
@@ -70,6 +78,7 @@ class App extends Component {
                 </Footer>
             </Layout>
         </Layout>
+        </Router>
     );
   }
 }
