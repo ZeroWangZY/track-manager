@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^2.10.1",
+    "coordtransform": "^2.1.2",
     "es6-promise": "^4.1.0",
     "isomorphic-fetch": "^2.2.1",
     "mysql": "^2.13.0",
