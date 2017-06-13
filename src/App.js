@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import MapController from'./redux/controller/MapController';
+import HomeController from './redux/controller/homeController'
 import {
     BrowserRouter as Router,
     Route,
@@ -40,37 +41,46 @@ class App extends Component {
                         <Link to="/">
                      <span>
 
-                         <Icon type="file" />
+                         <Icon type="home" />
                          <span className="nav-text">首页</span>
 
                     </span>
                         </Link>
                     </Menu.Item>
-
                     <Menu.Item key="2">
-                        <Link to="/user">
-                        <Icon type="user" />
-                        <span className="nav-text">用户</span>
+                        <Link to="/statistic">
+                        <Icon type="dot-chart" />
+                        <span className="nav-text">统计</span>
                         </Link>
                     </Menu.Item>
-                    <SubMenu
-                        key="sub2"
-                        title={<span><Icon type="team" /><span className="nav-text">Team</span></span>}
-                    >
-                        <Menu.Item key="5">Team 1</Menu.Item>
-                        <Menu.Item key="6">Team 2</Menu.Item>
-                    </SubMenu>
+                    <Menu.Item key="3">
+                        <Link to="/passenger">
+                        <Icon type="user" />
+                        <span className="nav-text">乘客</span>
+                        </Link>
+                    </Menu.Item>
+                    <Menu.Item key="4">
+                        <Link to="/driver">
+                        <Icon type="smile" />
+                        <span className="nav-text">司机</span>
+                        </Link>
+                    </Menu.Item>
+                    <Menu.Item key="5">
+                        <Link to="/order">
+                        <Icon type="file" />
+                        <span className="nav-text">订单</span>
+                        </Link>
+                    </Menu.Item>
+
 
                 </Menu>
             </Sider>
             <Layout>
-                <Header style={{ background: '#fff', padding: 0 }} />
                 <Content style={{ margin: '0 16px' }}>
                     <Breadcrumb style={{ margin: '12px 0' }}>
-                        <Breadcrumb.Item>首页</Breadcrumb.Item>
                     </Breadcrumb>
                     <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-                        <Route exact path="/" component={MapController}/>
+                        <Route exact path="/" component={HomeController}/>
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
