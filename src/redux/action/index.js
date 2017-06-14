@@ -3,7 +3,7 @@
  */
 import {address} from '../../config/config';
 import { message } from 'antd';
-
+import {getPointById} from '../../api/api';
 const initPoints = (points) => (
     {
         type: 'GET_POINTS',
@@ -12,20 +12,8 @@ const initPoints = (points) => (
 );
 export const fetchPoints = (index) => {
     return (dispatch) => {
-        return fetch(address+'/track/getpointsbyid?id='+index, {
-            credentials: 'same-origin',
-            method: "GET"
-        })
-            .then((res) => {
-                return res.json()
-            })
-            .then((json) =>  {
-                console.log('get json');
-                console.log(json);
-                if(json.code=='1'){
-                    message.error(json.msg);
-                }
+        return getPointById(index).then((json) =>  {
                 dispatch(initPoints(json));
-            });
+                });
     }
 };

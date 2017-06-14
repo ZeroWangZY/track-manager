@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import MapController from'./redux/controller/MapController';
 import HomeController from './redux/controller/homeController'
+import DriverController from './redux/controller/driverController'
+import PassengerController from './redux/controller/passengerController'
+import OrderController from './redux/controller/orderController'
+import StatisticController from './redux/controller/statisticController'
+
 import {
     BrowserRouter as Router,
     Route,
@@ -81,6 +85,14 @@ class App extends Component {
                     </Breadcrumb>
                     <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
                         <Route exact path="/" component={HomeController}/>
+                        <Route exact path="/driver" component={DriverController}/>
+                        <Route exact path="/statistic" component={StatisticController}/>
+                        <Route exact path="/order" component={OrderController}/>
+                        <Route exact path="/passenger" component={PassengerController}/>
+
+
+
+
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>

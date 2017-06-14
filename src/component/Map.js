@@ -7,7 +7,6 @@ require('isomorphic-fetch');
 var coordtransform=require('coordtransform');
 import {points2Bpoints} from '../utils/Map';
 
-let i = 0;
 class Map extends React.Component{
 
     showPolyline=function(){
