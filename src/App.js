@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import LoginModal from './component/LoginModal';
 import HomeController from './redux/controller/homeController'
 import DriverController from './redux/controller/driverController'
 import PassengerController from './redux/controller/passengerController'
@@ -83,18 +84,15 @@ class App extends Component {
                 <Content style={{ margin: '0 16px' }}>
                     <Breadcrumb style={{ margin: '12px 0' }}>
                     </Breadcrumb>
+                    <LoginModal/>
                     <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
                         <Route exact path="/" component={HomeController}/>
                         <Route exact path="/driver" component={DriverController}/>
                         <Route exact path="/statistic" component={StatisticController}/>
                         <Route exact path="/order" component={OrderController}/>
                         <Route exact path="/passenger" component={PassengerController}/>
-
-
-
-
                     </div>
-                </Content>
+                </Content> 
                 <Footer style={{ textAlign: 'center' }}>
                     Zero Wang\Dawn Shen\Feng Huihuang
                 </Footer>
