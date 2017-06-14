@@ -54,3 +54,17 @@ export const fetchAllPassenger = () => {
 
     });
 }
+
+export const addPassenger = (passenger) => {
+  $.ajax({
+              url:address+'/passenger/addpassenger',
+              type:'post',
+              data:passenger,
+              success: function(data,status){
+                console.log('add success');
+              },
+              error: function(data,err){
+
+              }
+          });
+}

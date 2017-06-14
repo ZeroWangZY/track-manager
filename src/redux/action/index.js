@@ -18,6 +18,13 @@ export const fetchPoints = (index) => {
     }
 };
 
+export const addPassenger= (passenger) =>{
+    return{
+        type:'ADD_PASSENGER',
+        passenger
+    }
+}
+
 const getAllPassenger = (passengers) => (
     {
         type: 'GET_ALL_PASSENGERS',

@@ -47,7 +47,6 @@ module.exports = {
                   console.log(err);
               }
               if(result) {
-                  console.log(result);
                   console.log('query success');
               }
               jsonWrite(res, result);
@@ -58,7 +57,8 @@ module.exports = {
 
     addPassenger: function(req, res, next){
       pool.getConnection(function(err, connection) {
-          connection.query('insert into passenger values ('+ req.body.id +','+req.body.name + '.'+ req.body.phone +')', function(err, result) {
+          console.log(req.body);
+          connection.query('insert into passenger values ( '+ req.body.passengerid +' , \''+req.body.passengername + '\' , \''+ req.body.phone +'\' )', function(err, result) {
               if(err){
                   console.log(err);
               }

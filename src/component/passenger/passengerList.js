@@ -9,6 +9,7 @@ class PassengerList extends React.Component{
         <div>
           {this.props.passengers.map((passenger,index) =>
             <PassengerItem
+                key = {index}
                 passenger = {passenger}
             />
             )
