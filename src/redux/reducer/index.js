@@ -3,11 +3,12 @@
  */
 import { combineReducers } from 'redux';
 import points from './points.js';
-
+import passengers from './passengers.js'
 
 
 const mainReducer = combineReducers({
-    points
+    points,
+    passengers
 })
 
 export default mainReducer

@@ -31,5 +31,26 @@ export const getPassengerCount = () => {
           if(json.code=='1'){
               message.error(json.msg);
           }
+          return json;
+    });
+}
+
+
+
+export const fetchAllPassenger = () => {
+  return fetch(address+'/passenger/getallpassenger', {
+      credentials: 'same-origin',
+      method: "GET"
+  })
+      .then((res) => {
+          return res.json()
+      })
+      .then((json) =>  {
+          console.log('get json');
+          if(json.code=='1'){
+              message.error(json.msg);
+          }
+          return json;
+
     });
 }
