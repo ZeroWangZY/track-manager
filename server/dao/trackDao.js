@@ -41,19 +41,6 @@ module.exports = {
             });
         });
     },
-<<<<<<< HEAD
-
-    taxiIDtoDriver: function (req, res, next) {
-        pool.getConnection(function (err, connection) {
-            var param = req.query || req.params;
-            console.log('param is');
-            console.log(param);
-            connection.query('SELECT * FRom driver where driverID in (SELECT distinct driverID from taxi where Taxiid=' + param.id + ')', function (err, result) {
-                if (err) {
-                    console.log(err);
-                }
-                if (result) {
-=======
     getdistancebyorder: function (req, res, next) {
         pool.getConnection(function(err, connection) {
             var param = req.query || req.params;
@@ -82,7 +69,6 @@ module.exports = {
                     console.log(err);
                 }
                 if(result) {
->>>>>>> bc341c3e9af4febeef13ce795cabb74e807bb8b2
                     console.log(result);
                     console.log('query success');
                 }
@@ -92,11 +78,5 @@ module.exports = {
         });
     }
 
-<<<<<<< HEAD
-
-
 };
 
-=======
-};
->>>>>>> bc341c3e9af4febeef13ce795cabb74e807bb8b2
