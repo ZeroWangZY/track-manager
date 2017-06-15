@@ -18,5 +18,8 @@ router.get('/getpassengerbyid', function(req, res, next){
 router.post('/addpassenger', function(req, res, next){
     passengerDao.addPassenger(req, res, next);
 });
+router.post('/deletepassenger', function(req, res, next){
+    passengerDao.deletePassenger(req, res, next);
+});
 
 module.exports = router;

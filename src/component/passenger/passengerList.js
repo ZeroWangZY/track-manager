@@ -29,7 +29,7 @@ const columns = [{
         <EditPassengerButton />
       </Col>
       <Col span={4} >
-        <DeletePassengerButton />
+        <DeletePassengerButton passengerid={text.passengerid}/>
       </Col>
       <Col span={4} >
         <RecorderPassengerButton />

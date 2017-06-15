@@ -88,5 +88,21 @@ module.exports = {
               connection.release();
           });
       });
+    },
+    deletePassenger: function(req, res, next){
+      pool.getConnection(function(err, connection) {
+          console.log(req.body);
+          connection.query('delete from passenger where passengerid=' + req.body.id, function(err, result) {
+              if(err){
+                  console.log(err);
+              }
+              if(result) {
+                  console.log(result);
+                  console.log('delete success');
+              }
+              jsonWrite(res, result);
+              connection.release();
+          });
+      });
     }
 };

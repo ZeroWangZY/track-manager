@@ -5,6 +5,7 @@ import {getDriverCount,getPassengerCount,getTaxiCount,getOrderCount} from '../..
 import { Card } from 'antd';
 import { Link } from 'react-router-dom'
 import { Row,Col } from 'antd';
+import ChartModal from '../../component/ChartModal'
 
 class HomeController extends React.Component{
 
@@ -78,7 +79,7 @@ class HomeController extends React.Component{
             </Card>
           </Col>
           <Col span={8} >
-            <Card title="营业额" extra={<Link to="/">详情</Link>}>
+            <Card title="营业额" extra={<ChartModal/>}>
             <div>
               24148 元
             </div>

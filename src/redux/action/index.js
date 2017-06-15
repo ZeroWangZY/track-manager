@@ -25,6 +25,13 @@ export const addPassenger= (passenger) =>{
     }
 }
 
+export const deletePassenger= (id) =>{
+    return{
+        type:'DELETE_PASSENGER',
+        id
+    }
+}
+
 const getAllPassenger = (passengers) => (
     {
         type: 'GET_ALL_PASSENGERS',

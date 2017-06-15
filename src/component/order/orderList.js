@@ -25,7 +25,7 @@ const columns = [{
   dataIndex: 'Price',
   key: 'Price',
 },{
-  title: '距离/米',
+  title: '距离/千米',
   dataIndex: 'Distance',
   key: 'Distance',
 },{

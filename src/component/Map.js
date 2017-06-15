@@ -81,14 +81,11 @@ class Map extends React.Component{
           fetchPointsByOrder(this.props.id).then((json)=>{
             this.showPolylineOrder(json[0])
           })
+        }else if(this.props.type=='heat'){
+          this.showHeat();
         }
     }
-    ComponentWillUpdate(){
-        if(this.props.type=='orderline'){
-          console.log('showPolyline');
-          this.showPolyline();
-        }
-    }
+
 
 
 
@@ -98,8 +95,6 @@ class Map extends React.Component{
         if(this.props.points[0]){
             if(this.props.type=='line'){
               this.showPolyline();
-            }else if(this.props.type=='heat'){
-              this.showHeat();
             }
         }
 
