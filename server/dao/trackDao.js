@@ -17,7 +17,7 @@ var jsonWrite = function (res, ret) {
             msg:'not found'
         });
     } else {
-            res.json(ret)
+        res.json(ret)
     }
 };
 
@@ -40,5 +40,42 @@ module.exports = {
                 connection.release();
             });
         });
+    },
+    getdistancebyorder: function (req, res, next) {
+        pool.getConnection(function(err, connection) {
+            var param = req.query || req.params;
+            console.log('param is');
+            console.log(param);
+            connection.query('call getdistancebyorder('+param.id+',@a,@b)', function(err, result) {
+                if(err){
+                    console.log(err);
+                }
+                if(result) {
+                    console.log(result);
+                    console.log('query success');
+                }
+                jsonWrite(res, result);
+                connection.release();
+            });
+        });
+    },
+    getpricebyorder: function (req, res, next) {
+        pool.getConnection(function(err, connection) {
+            var param = req.query || req.params;
+            console.log('param is');
+            console.log(param);
+            connection.query('call getpricebyorder('+param.id+')', function(err, result) {
+                if(err){
+                    console.log(err);
+                }
+                if(result) {
+                    console.log(result);
+                    console.log('query success');
+                }
+                jsonWrite(res, result);
+                connection.release();
+            });
+        });
     }
+
 };

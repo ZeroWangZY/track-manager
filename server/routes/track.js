@@ -10,4 +10,10 @@ router.get('/getpointsbyid', function(req, res, next) {
     trackDao.test(req,res,next);
 });
 
+router.get('/getdistancebyorder', function(req, res, next) {
+    trackDao.getdistancebyorder(req,res,next);
+});
+router.get('/getpricebyorder', function(req, res, next) {
+    trackDao.getpricebyorder(req,res,next);
+});
 module.exports = router;
