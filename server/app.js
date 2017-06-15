@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var track = require ('./routes/track');
 var passenger = require ('./routes/passenger');
+var driver = require ('./routes/driver');
+
 
 var app = express();
 
@@ -34,6 +36,7 @@ app.use(express.static(path.join(__dirname, '../public'), {index: false}));
 app.use('/', index);
 app.use('/track',track);
 app.use('/passenger',passenger);
+app.use('/driver',driver)
 
 
 // app.get('/ziyu', function(req, res, next) {
