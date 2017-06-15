@@ -233,3 +233,21 @@ export const fetchPointsByOrder = (id) => {
 
     });
 }
+
+export const fetchPriceByOrder = (id) => {
+  return fetch(address+'/track/getpricebyorder?id='+id, {
+      credentials: 'same-origin',
+      method: "GET"
+  })
+      .then((res) => {
+          return res.json()
+      })
+      .then((json) =>  {
+          console.log('get json');
+          if(json.code=='1'){
+              message.error(json.msg);
+          }
+          return json;
+
+    });
+}

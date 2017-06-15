@@ -2261,7 +2261,7 @@ module.exports = ReactCurrentOwner;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.fetchPointsByOrder = exports.fetchHotPoints = exports.getTaxiCount = exports.addOrder = exports.fetchAllOrder = exports.getOrderCount = exports.addDriver = exports.fetchAllDriver = exports.getDriverCount = exports.addPassenger = exports.fetchAllPassenger = exports.getPassengerCount = exports.getPointById = undefined;
+exports.fetchPriceByOrder = exports.fetchPointsByOrder = exports.fetchHotPoints = exports.getTaxiCount = exports.addOrder = exports.fetchAllOrder = exports.getOrderCount = exports.addDriver = exports.fetchAllDriver = exports.getDriverCount = exports.addPassenger = exports.fetchAllPassenger = exports.getPassengerCount = exports.getPointById = undefined;
 
 var _message = __webpack_require__(159);
 
@@ -2446,6 +2446,21 @@ var fetchHotPoints = exports.fetchHotPoints = function fetchHotPoints() {
 
 var fetchPointsByOrder = exports.fetchPointsByOrder = function fetchPointsByOrder(id) {
     return fetch(_config.address + '/track/getpointsbyorder?id=' + id, {
+        credentials: 'same-origin',
+        method: "GET"
+    }).then(function (res) {
+        return res.json();
+    }).then(function (json) {
+        console.log('get json');
+        if (json.code == '1') {
+            _message2.default.error(json.msg);
+        }
+        return json;
+    });
+};
+
+var fetchPriceByOrder = exports.fetchPriceByOrder = function fetchPriceByOrder(id) {
+    return fetch(_config.address + '/track/getpricebyorder?id=' + id, {
         credentials: 'same-origin',
         method: "GET"
     }).then(function (res) {
@@ -32320,9 +32335,13 @@ var columns = [{
   dataIndex: 'StartTime',
   key: 'StartTime'
 }, {
-  title: '下车时间',
-  dataIndex: 'EndTime',
-  key: 'EndTime'
+  title: '价格/元',
+  dataIndex: 'Price',
+  key: 'Price'
+}, {
+  title: '距离/米',
+  dataIndex: 'Distance',
+  key: 'Distance'
 }, {
   title: '操作',
   key: 'action',
@@ -32333,7 +32352,7 @@ var columns = [{
       _react2.default.createElement(
         _col2.default,
         { span: 10 },
-        _react2.default.createElement(_recorderOrderButton2.default, { id: text.Orderid })
+        _react2.default.createElement(_recorderOrderButton2.default, { id: text.Orderid, startTime: text.StartTime, endTime: text.EndTime })
       ),
       _react2.default.createElement(
         _col2.default,
@@ -32455,7 +32474,7 @@ var RecorderOrderButton = function (_React$Component) {
         _react2.default.createElement(
           _button2.default,
           { onClick: this.showModal },
-          '\u8BA2\u5355\u8DEF\u5F84'
+          '\u8BA2\u5355\u8BE6\u60C5'
         ),
         _react2.default.createElement(
           _modal2.default,
@@ -32465,6 +32484,10 @@ var RecorderOrderButton = function (_React$Component) {
             onOk: this.handleOk,
             onCancel: this.handleCancel
           },
+          '\u4E0A\u8F66\u65F6\u95F4\uFF1A',
+          this.props.startTime,
+          '  \u4E0B\u8F66\u65F6\u95F4\uFF1A',
+          this.props.endTime,
           _react2.default.createElement(_Map2.default, { type: 'orderline', id: this.props.id, points: this.state.points })
         )
       );

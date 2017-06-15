@@ -27,13 +27,14 @@ class RecorderOrderButton extends React.Component {
   render() {
     return (
       <div>
-        <Button onClick={this.showModal}>订单路径</Button>
+        <Button onClick={this.showModal}>订单详情</Button>
         <Modal
           title="订单信息"
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
+          上车时间：{this.props.startTime}  下车时间：{this.props.endTime}
           <Map type='orderline' id={this.props.id} points={this.state.points}/>
         </Modal>
       </div>

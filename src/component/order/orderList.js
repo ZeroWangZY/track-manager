@@ -20,10 +20,14 @@ const columns = [{
   title: '上车时间',
   dataIndex: 'StartTime',
   key: 'StartTime',
-}, {
-  title: '下车时间',
-  dataIndex: 'EndTime',
-  key: 'EndTime',
+},{
+  title: '价格/元',
+  dataIndex: 'Price',
+  key: 'Price',
+},{
+  title: '距离/米',
+  dataIndex: 'Distance',
+  key: 'Distance',
 },{
   title: '操作',
   key: 'action',
@@ -31,7 +35,7 @@ const columns = [{
     return (
       <span>
       <Col span={10} >
-        <RecorderOrderButton id={text.Orderid}/>
+        <RecorderOrderButton id={text.Orderid} startTime={text.StartTime} endTime={text.EndTime}/>
       </Col>
       <Col span={10} >
         <Button type='danger'>删除</Button>
