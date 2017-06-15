@@ -15,20 +15,22 @@ class PassengerControllerCpnt extends React.Component{
         count :2
       }
     }
-    componentDidMount(){
+
+    fetchCountHandler(allcount){
       this.setState({
-        count:10
+        count:allcount
       })
+    }
+
+    componentDidMount(){
+      var ss = this.fetchCountHandler.bind(this);
       getPassengerCount().then((json)=>{
-        console.log('json in con');
-        console.log(json[0].count);
-        this.state.count=5;
+        ss(json[0].count);
       })
     }
     render(){
       return (
         <div>
-          <div>{this.state.count} </div>
           <AddPassengerButton addPassenger = {this.props.addPassenger}/>
           <PassengerList
             passengers = {this.props.passengers}

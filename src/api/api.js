@@ -26,7 +26,7 @@ export const getPassengerCount = () => {
           return res.json()
       })
       .then((json) =>  {
-          console.log('get json');
+          console.log('passenger count in api');
           console.log(json);
           if(json.code=='1'){
               message.error(json.msg);

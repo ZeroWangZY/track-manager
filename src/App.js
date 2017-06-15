@@ -85,14 +85,14 @@ class App extends Component {
                     <Breadcrumb style={{ margin: '12px 0' }}>
                     </Breadcrumb>
                     <LoginModal/>
-                    <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+                    <div style={{ padding: 24, background: '#fff', minHeight: 500 }}>
                         <Route exact path="/" component={HomeController}/>
                         <Route exact path="/driver" component={DriverController}/>
                         <Route exact path="/statistic" component={StatisticController}/>
                         <Route exact path="/order" component={OrderController}/>
                         <Route exact path="/passenger" component={PassengerController}/>
                     </div>
-                </Content> 
+                </Content>
                 <Footer style={{ textAlign: 'center' }}>
                     Zero Wang\Dawn Shen\Feng Huihuang
                 </Footer>
