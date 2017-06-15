@@ -30,13 +30,13 @@ const columns = [{
   render: (text, record) => {
     return (
       <span>
-      <Col span={4} >
+      <Col span={5} >
         <Button>1</Button>
       </Col>
-      <Col span={4} >
+      <Col span={5} >
         <Button>2</Button>
       </Col>
-      <Col span={4} >
+      <Col span={5} >
         <Button>3</Button>
       </Col>
       </span>

@@ -24,7 +24,7 @@ module.exports = {
     getOrderCount: function (req, res, next) {
         pool.getConnection(function(err, connection) {
             var param = req.query || req.params;
-            connection.query('SELECT count(*) as count from order', function(err, result) {
+            connection.query('SELECT count(*) as count from pro1.order', function(err, result) {
                 if(err){
                     console.log(err);
                 }
@@ -40,7 +40,7 @@ module.exports = {
 
     getAllOrder: function (req ,res, next) {
       pool.getConnection(function(err, connection) {
-          connection.query('SELECT * from order', function(err, result) {
+          connection.query('SELECT * from pro1.order', function(err, result) {
               if(err){
                   console.log(err);
               }
@@ -59,7 +59,7 @@ module.exports = {
             var param = req.query || req.params;
             console.log('param is');
             console.log(param);
-            connection.query('SELECT * from order where Orderid='+ param.id , function (err, result) {
+            connection.query('SELECT * from pro1.order where Orderid='+ param.id , function (err, result) {
                 if (err) {
                     console.log(err);
                 }
@@ -78,7 +78,7 @@ module.exports = {
             var param = req.query || req.params;
             console.log('param is');
             console.log(param);
-            connection.query('SELECT * from order where Taxiid like \'%'+ param.id+'%\'' , function (err, result) {
+            connection.query('SELECT * from pro1.order where Taxiid like \'%'+ param.id+'%\'' , function (err, result) {
                 if (err) {
                     console.log(err);
                 }
