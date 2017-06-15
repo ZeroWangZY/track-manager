@@ -125,7 +125,9 @@ module.exports = {
             var param = req.query || req.params;
             console.log('param is');
             console.log(param);
-            connection.query('call gethotpoints(\''+param.starttime+'\',\''+param.endtime+'\')', function(err, result) {
+          //  connection.query('call gethotpoints(\''+param.starttime+'\',\''+param.endtime+'\')', function(err, result) {
+            connection.query('select Longtitude,Latitude from minitrack where Taxiid<10', function(err, result) {
+
                 if(err){
                     console.log(err);
                 }
@@ -139,4 +141,3 @@ module.exports = {
         });
     }
 };
-

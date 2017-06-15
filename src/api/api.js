@@ -193,3 +193,25 @@ export const getTaxiCount = () => {
           return json;
     });
 }
+
+
+
+
+
+export const fetchHotPoints = () => {
+  return fetch(address+'/track/gethotpoints', {
+      credentials: 'same-origin',
+      method: "GET"
+  })
+      .then((res) => {
+          return res.json()
+      })
+      .then((json) =>  {
+          console.log('get json');
+          if(json.code=='1'){
+              message.error(json.msg);
+          }
+          return json;
+
+    });
+}

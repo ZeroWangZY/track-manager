@@ -43,6 +43,7 @@ class HomeController extends React.Component{
 
 
 
+
     }
 
     render(){
@@ -73,6 +74,13 @@ class HomeController extends React.Component{
             <Card title="订单总数" extra={<Link to="/order">详情</Link>}>
             <div>
               {this.state.orderCount} 单
+            </div>
+            </Card>
+          </Col>
+          <Col span={8} >
+            <Card title="营业额" extra={<Link to="/">详情</Link>}>
+            <div>
+              24148 元
             </div>
             </Card>
           </Col>
