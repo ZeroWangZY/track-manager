@@ -1,8 +1,9 @@
 import { Modal, Button } from 'antd';
 import React from 'react'
 import Map from '../Map'
-class RecorderPassengerButton extends React.Component {
-  state = { visible: false }
+import {fetchPointsByOrder} from '../../api/api'
+class RecorderOrderButton extends React.Component {
+  state = { visible: false ,points:[]}
   showModal = () => {
     this.setState({
       visible: true,
@@ -20,21 +21,24 @@ class RecorderPassengerButton extends React.Component {
       visible: false,
     });
   }
+  componentDidMount(){
+
+  }
   render() {
     return (
       <div>
-        <Button onClick={this.showModal}>乘车记录</Button>
+        <Button onClick={this.showModal}>订单路径</Button>
         <Modal
           title="订单信息"
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
-          <Map points={[]}/>
+          <Map type='orderline' id={this.props.id} points={this.state.points}/>
         </Modal>
       </div>
     );
   }
 }
 
-export default RecorderPassengerButton;
+export default RecorderOrderButton;

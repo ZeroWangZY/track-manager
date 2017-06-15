@@ -6,9 +6,9 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 var coordtransform=require('coordtransform');
 import {points2Bpoints} from '../utils/Map';
+import {fetchPointsByOrder} from '../api/api'
 
 class Map extends React.Component{
-
     showHeat(){
         var pointArray = points2Bpoints(this.props.points);
         console.log(pointArray);
@@ -44,6 +44,28 @@ class Map extends React.Component{
         map.enableScrollWheelZoom(true);
     }
 
+    showPolylineOrder=function(points){
+
+        var pointArray = points2Bpoints(points);
+        var startPoint = new BMap.Marker(pointArray[0]);
+        var endPoint = new BMap.Marker(pointArray[pointArray.length-1]);
+        var polyline = new BMap.Polyline(pointArray,
+            {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5}
+        );
+        var startLabel = new BMap.Label("起点",{offset:new BMap.Size(20,-10)});
+	      startPoint.setLabel(startLabel);
+        var map = new BMap.Map(this.refs.map);
+        var endLabel = new BMap.Label("终点",{offset:new BMap.Size(20,-10)});
+	      endPoint.setLabel(endLabel);
+        var map = new BMap.Map(this.refs.map);
+        map.addOverlay(polyline);
+        map.addOverlay(startPoint);
+        map.addOverlay(endPoint);
+        map.centerAndZoom(pointArray[0], 15);
+        map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+        map.enableScrollWheelZoom(true);
+    }
+
 
     showMap(){
         var map = new BMap.Map(this.refs.map);    // 创建Map实例
@@ -55,11 +77,24 @@ class Map extends React.Component{
     }
     componentDidMount(){
         this.showMap();
-
+        if(this.props.type=='orderline'){
+          fetchPointsByOrder(this.props.id).then((json)=>{
+            this.showPolylineOrder(json[0])
+          })
+        }
+    }
+    ComponentWillUpdate(){
+        if(this.props.type=='orderline'){
+          console.log('showPolyline');
+          this.showPolyline();
+        }
     }
 
 
+
+
     render(){
+      console.log(this.props.points);
         if(this.props.points[0]){
             if(this.props.type=='line'){
               this.showPolyline();

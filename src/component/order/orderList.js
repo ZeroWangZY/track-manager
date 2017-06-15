@@ -3,7 +3,7 @@ import React  from "react";
 import { Table, Icon } from 'antd';
 import { Button, Modal, Form, Input, Radio } from 'antd';
 import { Row,Col } from 'antd';
-
+import RecorderOrderButton from './recorderOrderButton';
 const columns = [{
   title: 'ID',
   dataIndex: 'Orderid',
@@ -31,11 +31,12 @@ const columns = [{
     return (
       <span>
       <Col span={10} >
-        <Button>1</Button>
+        <RecorderOrderButton id={text.Orderid}/>
       </Col>
       <Col span={10} >
-        <Button>2</Button>
+        <Button type='danger'>删除</Button>
       </Col>
+
       </span>
     );
   },

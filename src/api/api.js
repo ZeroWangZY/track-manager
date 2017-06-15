@@ -215,3 +215,21 @@ export const fetchHotPoints = () => {
 
     });
 }
+
+export const fetchPointsByOrder = (id) => {
+  return fetch(address+'/track/getpointsbyorder?id='+id, {
+      credentials: 'same-origin',
+      method: "GET"
+  })
+      .then((res) => {
+          return res.json()
+      })
+      .then((json) =>  {
+          console.log('get json');
+          if(json.code=='1'){
+              message.error(json.msg);
+          }
+          return json;
+
+    });
+}
