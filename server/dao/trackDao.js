@@ -46,7 +46,7 @@ module.exports = {
             var param = req.query || req.params;
             console.log('param is');
             console.log(param);
-            connection.query('call getdistancebyorder('+param.id+',@a,@b)', function(err, result) {
+            connection.query('select distance from pro1.order where Orderid='+param.id , function(err, result) {
                 if(err){
                     console.log(err);
                 }
@@ -87,7 +87,7 @@ module.exports = {
             var param = req.query || req.params;
             console.log('param is');
             console.log(param);
-            connection.query('call getpricebyorder('+param.id+',@a)', function(err, result) {
+            connection.query('select price from pro1.order where Orderid='+param.id , function(err, result) {
                 if(err){
                     console.log(err);
                 }
