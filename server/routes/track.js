@@ -22,8 +22,9 @@ router.get('/getpointsbyorder', function(req, res, next) {
 router.get('/getdistancebyorder', function(req, res, next) {
     trackDao.getdistancebyorder(req,res,next);
 });
-router.get('/getpricebyorder', function(req, res, next) {
-    trackDao.getpricebyorder(req,res,next);
+
+router.get('/gethotpoints', function(req, res, next) {
+    trackDao.gethotpoints(req,res,next);
 });
 
 module.exports = router;
