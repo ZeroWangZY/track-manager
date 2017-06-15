@@ -87,7 +87,7 @@ module.exports = {
             var param = req.query || req.params;
             console.log('param is');
             console.log(param);
-            connection.query('call getpricebyorder('+param.id+')', function(err, result) {
+            connection.query('call getpricebyorder('+param.id+',@a)', function(err, result) {
                 if(err){
                     console.log(err);
                 }
