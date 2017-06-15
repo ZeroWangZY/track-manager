@@ -6,17 +6,25 @@ import { Row,Col } from 'antd';
 
 const columns = [{
   title: 'ID',
-  dataIndex: 'driverID',
-  key: 'driverID',
+  dataIndex: 'Orderid',
+  key: 'Orderid',
 }, {
-  title: '司机姓名',
-  dataIndex: 'name',
-  key: 'name',
+  title: '接单出租车ID',
+  dataIndex: 'Taxiid',
+  key: 'Taxiid',
 }, {
-  title: '司机电话',
-  dataIndex: 'phone',
-  key: 'phone',
+  title: '乘客ID',
+  dataIndex: 'Passengerid',
+  key: 'Passengerid',
+},{
+  title: '上车时间',
+  dataIndex: 'StartTime',
+  key: 'StartTime',
 }, {
+  title: '下车时间',
+  dataIndex: 'EndTime',
+  key: 'EndTime',
+},{
   title: '操作',
   key: 'action',
   render: (text, record) => {
@@ -36,15 +44,15 @@ const columns = [{
   },
 }];
 
-class DriverList extends React.Component{
+class OrderList extends React.Component{
 
     render(){
       return (
         <div>
-        <Table columns={columns} dataSource={this.props.drivers} />
+        <Table columns={columns} dataSource={this.props.orders} />
         </div>
       )
     }
 }
 
-export default DriverList;
+export default OrderList;

@@ -20,7 +20,7 @@ const columns = [{
   dataIndex: 'phone',
   key: 'phone',
 }, {
-  title: 'Action',
+  title: '操作',
   key: 'action',
   render: (text, record) => {
     return (
