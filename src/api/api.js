@@ -120,3 +120,54 @@ export const addDriver = (driver) => {
               }
           });
 }
+
+
+
+export const getOrderCount = () => {
+  return fetch(address+'/order/getordercount', {
+      credentials: 'same-origin',
+      method: "GET"
+  })
+      .then((res) => {
+          return res.json()
+      })
+      .then((json) =>  {
+          console.log('order count in api');
+          console.log(json);
+          if(json.code=='1'){
+              message.error(json.msg);
+          }
+          return json;
+    });
+}
+export const fetchAllOrder = () => {
+  return fetch(address+'/order/getallorder', {
+      credentials: 'same-origin',
+      method: "GET"
+  })
+      .then((res) => {
+          return res.json()
+      })
+      .then((json) =>  {
+          console.log('get json');
+          if(json.code=='1'){
+              message.error(json.msg);
+          }
+          return json;
+
+    });
+}
+
+export const addOrder = (order) => {
+  $.ajax({
+              url:address+'/order/addorder',
+              type:'post',
+              data:order,
+              success: function(data,status){
+                console.log('add success');
+              },
+              error: function(data,err){
+
+              }
+          });
+}

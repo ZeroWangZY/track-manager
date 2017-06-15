@@ -3,7 +3,7 @@
  */
 import {address} from '../../config/config';
 import { message } from 'antd';
-import {getPointById,fetchAllPassenger,fetchAllDriver} from '../../api/api';
+import {getPointById,fetchAllPassenger,fetchAllDriver,fetchAllOrder} from '../../api/api';
 const initPoints = (points) => (
     {
         type: 'GET_POINTS',
@@ -39,13 +39,16 @@ export const getPassenger = () => {
     }
 };
 
+
+
+
+
 export const addDriver= (driver) =>{
     return{
         type:'ADD_DRIVER',
         driver
     }
 }
-
 const getAllDriver = (drivers) => (
     {
         type: 'GET_ALL_DRIVER',
@@ -56,6 +59,30 @@ export const getDriver = () => {
     return (dispatch) => {
         return fetchAllDriver().then((json) =>  {
                 dispatch(getAllDriver(json));
+                });
+    }
+};
+
+
+
+
+
+export const addOrder= (order) =>{
+    return{
+        type:'ADD_ORDER',
+        order
+    }
+}
+const getAllOrder = (orders) => (
+    {
+        type: 'GET_ALL_ORDER',
+        data: orders
+    }
+);
+export const getOrder = () => {
+    return (dispatch) => {
+        return fetchAllOrder().then((json) =>  {
+                dispatch(getAllOrder(json));
                 });
     }
 };
