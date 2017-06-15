@@ -99,6 +99,26 @@ module.exports = {
                 connection.release();
             });
         });
+    },
+
+
+    getpointsbyorder: function (req, res, next) {
+        pool.getConnection(function(err, connection) {
+            var param = req.query || req.params;
+            console.log('param is');
+            console.log(param);
+            connection.query('call getpointsbyorder('+param.id+')', function(err, result) {
+                if(err){
+                    console.log(err);
+                }
+                if(result) {
+                    console.log(result);
+                    console.log('query success');
+                }
+                jsonWrite(res, result);
+                connection.release();
+            });
+        });
     }
 
 };

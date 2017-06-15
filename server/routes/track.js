@@ -15,8 +15,9 @@ router.get('/getdriverbytaxiID', function(req, res, next) {
     trackDao.taxiIDtoDriver(req,res,next);
 });
 
-
-
+router.get('/getpointsbyorder', function(req, res, next) {
+    trackDao.getpointsbyorder(req,res,next);
+});
 
 router.get('/getdistancebyorder', function(req, res, next) {
     trackDao.getdistancebyorder(req,res,next);
