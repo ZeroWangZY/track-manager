@@ -10,19 +10,19 @@ router.get('/getpointsbyid', function(req, res, next) {
     trackDao.test(req,res,next);
 });
 
-<<<<<<< HEAD
+
 router.get('/getdriverbytaxiID', function(req, res, next) {
     trackDao.taxiIDtoDriver(req,res,next);
 });
 
 
 
-=======
+
 router.get('/getdistancebyorder', function(req, res, next) {
     trackDao.getdistancebyorder(req,res,next);
 });
 router.get('/getpricebyorder', function(req, res, next) {
     trackDao.getpricebyorder(req,res,next);
 });
->>>>>>> bc341c3e9af4febeef13ce795cabb74e807bb8b2
+
 module.exports = router;
