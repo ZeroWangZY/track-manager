@@ -68,3 +68,55 @@ export const addPassenger = (passenger) => {
               }
           });
 }
+
+export const getDriverCount = () => {
+  return fetch(address+'/driver/getdrivercount', {
+      credentials: 'same-origin',
+      method: "GET"
+  })
+      .then((res) => {
+          return res.json()
+      })
+      .then((json) =>  {
+          console.log('driver count in api');
+          console.log(json);
+          if(json.code=='1'){
+              message.error(json.msg);
+          }
+          return json;
+    });
+}
+
+
+
+export const fetchAllDriver = () => {
+  return fetch(address+'/driver/getalldriver', {
+      credentials: 'same-origin',
+      method: "GET"
+  })
+      .then((res) => {
+          return res.json()
+      })
+      .then((json) =>  {
+          console.log('get json');
+          if(json.code=='1'){
+              message.error(json.msg);
+          }
+          return json;
+
+    });
+}
+
+export const addDriver = (driver) => {
+  $.ajax({
+              url:address+'/driver/adddriver',
+              type:'post',
+              data:driver,
+              success: function(data,status){
+                console.log('add success');
+              },
+              error: function(data,err){
+
+              }
+          });
+}
