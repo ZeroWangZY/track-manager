@@ -17,7 +17,7 @@ var jsonWrite = function (res, ret) {
             msg:'not found'
         });
     } else {
-            res.json(ret)
+        res.json(ret)
     }
 };
 
@@ -41,6 +41,7 @@ module.exports = {
             });
         });
     },
+<<<<<<< HEAD
 
     taxiIDtoDriver: function (req, res, next) {
         pool.getConnection(function (err, connection) {
@@ -52,6 +53,36 @@ module.exports = {
                     console.log(err);
                 }
                 if (result) {
+=======
+    getdistancebyorder: function (req, res, next) {
+        pool.getConnection(function(err, connection) {
+            var param = req.query || req.params;
+            console.log('param is');
+            console.log(param);
+            connection.query('call getdistancebyorder('+param.id+',@a,@b)', function(err, result) {
+                if(err){
+                    console.log(err);
+                }
+                if(result) {
+                    console.log(result);
+                    console.log('query success');
+                }
+                jsonWrite(res, result);
+                connection.release();
+            });
+        });
+    },
+    getpricebyorder: function (req, res, next) {
+        pool.getConnection(function(err, connection) {
+            var param = req.query || req.params;
+            console.log('param is');
+            console.log(param);
+            connection.query('call getpricebyorder('+param.id+')', function(err, result) {
+                if(err){
+                    console.log(err);
+                }
+                if(result) {
+>>>>>>> bc341c3e9af4febeef13ce795cabb74e807bb8b2
                     console.log(result);
                     console.log('query success');
                 }
@@ -61,7 +92,11 @@ module.exports = {
         });
     }
 
+<<<<<<< HEAD
 
 
 };
 
+=======
+};
+>>>>>>> bc341c3e9af4febeef13ce795cabb74e807bb8b2
