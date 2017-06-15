@@ -10,6 +10,7 @@ class OrderControllerCpnt extends React.Component{
       store.dispatch(getOrder());
     }
     render(){
+
       return (
         <div>
           <OrderList orders = {this.props.orders}/>

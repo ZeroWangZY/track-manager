@@ -13,7 +13,7 @@ router.get('/getallorder', function(req, res, next) {
     orderDao.getAllOrder(req,res,next);
 });
 
-router.get("getorderbyid", function(req, res, next) {
+router.get("/getorderbyid", function(req, res, next) {
     orderDao.getOrderByID(req,res,next);
 });
 

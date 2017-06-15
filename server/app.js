@@ -9,6 +9,8 @@ var index = require('./routes/index');
 var track = require ('./routes/track');
 var passenger = require ('./routes/passenger');
 var driver = require ('./routes/driver');
+var order = require ('./routes/order');
+var taxi = require ('./routes/taxi')
 
 
 var app = express();
@@ -36,7 +38,9 @@ app.use(express.static(path.join(__dirname, '../public'), {index: false}));
 app.use('/', index);
 app.use('/track',track);
 app.use('/passenger',passenger);
-app.use('/driver',driver)
+app.use('/driver',driver);
+app.use('/taxi',taxi);
+app.use('/order',order);
 
 
 // app.get('/ziyu', function(req, res, next) {
