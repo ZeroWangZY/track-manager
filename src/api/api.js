@@ -123,6 +123,8 @@ export const addDriver = (driver) => {
 
 
 
+
+
 export const getOrderCount = () => {
   return fetch(address+'/order/getordercount', {
       credentials: 'same-origin',
@@ -170,4 +172,46 @@ export const addOrder = (order) => {
 
               }
           });
+}
+
+
+
+export const getTaxiCount = () => {
+  return fetch(address+'/taxi/gettaxicount', {
+      credentials: 'same-origin',
+      method: "GET"
+  })
+      .then((res) => {
+          return res.json()
+      })
+      .then((json) =>  {
+          console.log('taxi count in api');
+          console.log(json);
+          if(json.code=='1'){
+              message.error(json.msg);
+          }
+          return json;
+    });
+}
+
+
+
+
+
+export const fetchHotPoints = () => {
+  return fetch(address+'/track/gethotpoints', {
+      credentials: 'same-origin',
+      method: "GET"
+  })
+      .then((res) => {
+          return res.json()
+      })
+      .then((json) =>  {
+          console.log('get json');
+          if(json.code=='1'){
+              message.error(json.msg);
+          }
+          return json;
+
+    });
 }

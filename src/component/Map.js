@@ -9,6 +9,19 @@ import {points2Bpoints} from '../utils/Map';
 
 class Map extends React.Component{
 
+    showHeat(){
+        var pointArray = points2Bpoints(this.props.points);
+        console.log(pointArray);
+
+        var map = new BMap.Map(this.refs.map);
+        map.centerAndZoom(pointArray[0], 11);
+        map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+        map.enableScrollWheelZoom(true);
+        var heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":20});
+      	map.addOverlay(heatmapOverlay);
+      	heatmapOverlay.setDataSet({data:pointArray,max:100});
+        heatmapOverlay.show();
+    }
     showPolyline=function(){
 
         var pointArray = points2Bpoints(this.props.points);
@@ -34,13 +47,17 @@ class Map extends React.Component{
     }
     componentDidMount(){
         this.showMap();
+
     }
 
 
     render(){
         if(this.props.points[0]){
-            console.log('render')
-            this.showPolyline();
+            if(this.props.type=='line'){
+              this.showPolyline();
+            }else if(this.props.type=='heat'){
+              this.showHeat();
+            }
         }
 
 

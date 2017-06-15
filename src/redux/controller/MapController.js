@@ -36,7 +36,7 @@ class MapControllerCpnt extends React.Component{
                         this.toggle(true);
                     } }/>
             <Spin spinning={this.state.loading}>
-                <Map points={this.props.points} />
+                <Map points={this.props.points} type='line' />
             </Spin>
         </div>
         )
