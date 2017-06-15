@@ -23,10 +23,10 @@ var jsonWrite = function (res, ret) {
 
 
 module.exports = {
-    getPassengerCount: function (req, res, next) {
+    getTaxiCount: function (req, res, next) {
         pool.getConnection(function(err, connection) {
             var param = req.query || req.params;
-            connection.query('SELECT count(*) as count from passenger', function(err, result) {
+            connection.query('SELECT count(*) as count from taxi', function(err, result) {
                 if(err){
                     console.log(err);
                 }
@@ -40,9 +40,9 @@ module.exports = {
         });
     },
 
-    getAllPassenger: function (req ,res, next) {
+    getAllTaxi: function (req ,res, next) {
       pool.getConnection(function(err, connection) {
-          connection.query('SELECT * from passenger', function(err, result) {
+          connection.query('SELECT * from taxi', function(err, result) {
               if(err){
                   console.log(err);
               }
@@ -55,28 +55,10 @@ module.exports = {
       });
     },
 
-    getPassengerByID: function (req ,res, next) {
-        pool.getConnection(function(err, connection) {
-            var param = req.query || req.params;
-            console.log('param is');
-            console.log(param);
-            connection.query('SELECT * from passenger where passengerid='+ param.id, function(err, result) {
-                if(err){
-                    console.log(err);
-                }
-                if(result) {
-                    console.log('query success');
-                }
-                jsonWrite(res, result);
-                connection.release();
-            });
-        });
-    },
-
-    addPassenger: function(req, res, next){
+    addTaxi: function(req, res, next){
       pool.getConnection(function(err, connection) {
           console.log(req.body);
-          connection.query('insert into passenger values ( '+ req.body.passengerid +' , \''+req.body.passengername + '\' , \''+ req.body.phone +'\' )', function(err, result) {
+          connection.query('insert into taxi values ( '+ req.body.Taxiid +' , \''+req.body.Taxitype + '\' , \''+ req.body.driverID +'\' )', function(err, result) {
               if(err){
                   console.log(err);
               }
@@ -88,5 +70,25 @@ module.exports = {
               connection.release();
           });
       });
+    },
+
+    getTaxiByID: function (req, res, next) {
+        pool.getConnection(function (err, connection) {
+            var param = req.query || req.params;
+            console.log('param is');
+            console.log(param);
+            connection.query('SELECT * from taxi where taxiID='+ param.id , function (err, result) {
+                if (err) {
+                    console.log(err);
+                }
+                if (result) {
+                    console.log(result);
+                    console.log('query success');
+                }
+                jsonWrite(res, result);
+                connection.release();
+            });
+        });
     }
+
 };

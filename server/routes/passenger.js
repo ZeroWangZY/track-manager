@@ -11,6 +11,10 @@ router.get('/getallpassenger', function(req, res, next){
     passengerDao.getAllPassenger(req, res, next);
 });
 
+router.get('/getpassengerbyid', function(req, res, next){
+    passengerDao.getPassengerByID(req, res, next);
+});
+
 router.post('/addpassenger', function(req, res, next){
     passengerDao.addPassenger(req, res, next);
 });

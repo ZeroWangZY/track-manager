@@ -10,4 +10,10 @@ router.get('/getpointsbyid', function(req, res, next) {
     trackDao.test(req,res,next);
 });
 
+router.get('/getdriverbytaxiID', function(req, res, next) {
+    trackDao.taxiIDtoDriver(req,res,next);
+});
+
+
+
 module.exports = router;
