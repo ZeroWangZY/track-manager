@@ -19,12 +19,11 @@ router.get('/getdriversbyname', function(req, res, next){
 router.get('/getdriverbyid', function(req, res, next){
     driverDao.getDriverByID(req, res, next);
 });
-
-
 router.post('/adddriver', function(req, res, next){
     driverDao.addDriver(req, res, next);
 });
-
-
+router.get('/getpointsbyid', function(req, res, next){
+    driverDao.getPointsByID(req, res, next);
+});
 
 module.exports = router;
