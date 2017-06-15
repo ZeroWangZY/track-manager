@@ -25,12 +25,20 @@ class Map extends React.Component{
     showPolyline=function(){
 
         var pointArray = points2Bpoints(this.props.points);
-
+        var startPoint = new BMap.Marker(pointArray[0]);
+        var endPoint = new BMap.Marker(pointArray[pointArray.length-1]);
         var polyline = new BMap.Polyline(pointArray,
             {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5}
         );
+        var startLabel = new BMap.Label("起点",{offset:new BMap.Size(20,-10)});
+	      startPoint.setLabel(startLabel);
+        var map = new BMap.Map(this.refs.map);
+        var endLabel = new BMap.Label("终点",{offset:new BMap.Size(20,-10)});
+	      endPoint.setLabel(endLabel);
         var map = new BMap.Map(this.refs.map);
         map.addOverlay(polyline);
+        map.addOverlay(startPoint);
+        map.addOverlay(endPoint);
         map.centerAndZoom(pointArray[0], 15);
         map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
         map.enableScrollWheelZoom(true);
