@@ -126,7 +126,7 @@ module.exports = {
             console.log('param is');
             console.log(param);
           //  connection.query('call gethotpoints(\''+param.starttime+'\',\''+param.endtime+'\')', function(err, result) {
-            connection.query('select Longtitude,Latitude from minitrack where Taxiid<10', function(err, result) {
+            connection.query('select Longtitude,Latitude from minitrack where Recetime < \'2015-04-18 12:10:00\' and Recetime > \'2015-04-18 12:00:00\'', function(err, result) {
 
                 if(err){
                     console.log(err);
