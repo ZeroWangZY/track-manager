@@ -16435,7 +16435,9 @@ Object.defineProperty(exports, "__esModule", {
  * Created by ZeroW on 2017/6/10.
  */
 
-var address = exports.address = "http://localhost:3000";
+var address = exports.address = "";
+
+//http://localhost:3000
 
 /***/ }),
 /* 165 */
@@ -32226,8 +32228,8 @@ var columns = [{
         { span: 4 },
         _react2.default.createElement(
           _button2.default,
-          null,
-          '1'
+          { type: 'primary' },
+          '\u4FEE\u6539'
         )
       ),
       _react2.default.createElement(
@@ -32235,17 +32237,8 @@ var columns = [{
         { span: 4 },
         _react2.default.createElement(
           _button2.default,
-          null,
-          '2'
-        )
-      ),
-      _react2.default.createElement(
-        _col2.default,
-        { span: 4 },
-        _react2.default.createElement(
-          _button2.default,
-          null,
-          '3'
+          { type: 'danger' },
+          '\u5220\u9664'
         )
       )
     );
@@ -33561,11 +33554,6 @@ var StatisticController = function (_React$Component) {
           TabPane,
           { tab: '\u70ED\u95E8\u4E0A\u8F66\u5730\u70B9', key: '2' },
           _react2.default.createElement(_Map2.default, { points: this.state.points, type: 'heat' })
-        ),
-        _react2.default.createElement(
-          TabPane,
-          { tab: 'Tab 3', key: '3' },
-          'Content of tab 3'
         )
       );
     }

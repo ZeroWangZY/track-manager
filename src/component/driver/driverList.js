@@ -23,14 +23,12 @@ const columns = [{
     return (
       <span>
       <Col span={4} >
-        <Button>1</Button>
+        <Button type='primary'>修改</Button>
       </Col>
       <Col span={4} >
-        <Button>2</Button>
+        <Button type='danger'>删除</Button>
       </Col>
-      <Col span={4} >
-        <Button>3</Button>
-      </Col>
+      
       </span>
     );
   },
