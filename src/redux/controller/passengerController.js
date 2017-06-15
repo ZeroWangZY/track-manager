@@ -11,23 +11,10 @@ class PassengerControllerCpnt extends React.Component{
     constructor(){
       super();
       store.dispatch(getPassenger());
-      this.state={
-        count :2
-      }
+
     }
 
-    fetchCountHandler(allcount){
-      this.setState({
-        count:allcount
-      })
-    }
-
-    componentDidMount(){
-      var ss = this.fetchCountHandler.bind(this);
-      getPassengerCount().then((json)=>{
-        ss(json[0].count);
-      })
-    }
+    
     render(){
       return (
         <div>
