@@ -12,7 +12,11 @@ router.get('/getalldriver', function(req, res, next){
     driverDao.getAllDriver(req, res, next);
 });
 
-router.get('/getdriverbyID', function(req, res, next){
+router.get('/getdriversbyname', function(req, res, next){
+    driverDao.getDriversByName(req, res, next);
+});
+
+router.get('/getdriverbyid', function(req, res, next){
     driverDao.getDriverByID(req, res, next);
 });
 
