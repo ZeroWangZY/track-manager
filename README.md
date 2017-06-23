@@ -1,6 +1,12 @@
 ﻿# track-manager
  
-This is design for taxi company like didi.
+This is design for taxi company to manager their texi's tracking and analyse how to dispatch their texi.
+
+预览
+--
+![](https://github.com/ZeroWangZY/track-manager/raw/master/pics/preview1.PNG)  <br>
+![](https://github.com/ZeroWangZY/track-manager/raw/master/pics/preview2.PNG)
+<br>
 
 环境配置
 -----
