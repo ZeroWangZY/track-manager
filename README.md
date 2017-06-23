@@ -31,7 +31,8 @@ Mysql<br>
 
 其他说明
 --
-运行时如果不能正常连接Mysql数据库，请在/server/conf/db.js将数据库地址的配置信息更改为本地Mysql的地址
+运行时如果不能正常连接Mysql数据库，请在/server/conf/db.js将数据库地址的配置信息更改为本地Mysql的地址<br>
+部分数据下载链接链接: http://pan.baidu.com/s/1hseMLVm 密码: mpw6
 
 
 
